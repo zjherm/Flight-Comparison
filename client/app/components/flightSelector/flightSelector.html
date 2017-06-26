@@ -1,4 +1,6 @@
 <div class="col-md-6 col-sm-6">
+	<h1>Select {{fs.where == 'origin' ? 'Departure' : 'Arrival'}} Details</h1>
+	<p>Selecte Date:</p>
 	<p class="input-group">
 		<input type="text" 
 			   class="form-control" 
@@ -14,7 +16,7 @@
 		     <button type="button" class="btn btn-default" ng-click="fs.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
 		 </span>	
 	</p>
-  
+  <p>Select Airport</p>
   <input type="text" 
   		 ng-model="fs.selectedAirport" 
   		 uib-typeahead="airport as airport.name + ' [' + airport.iataCode + ']' for airport in fs.airports | filter:$viewValue | limitTo:8" 
