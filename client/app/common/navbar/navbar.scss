@@ -1,13 +1,15 @@
 @import '../common';
 
 .navbar {
-  height: 6.5rem;
   background-color: $primaryColor;
   padding: 1rem;
-
+  border-bottom: 2px solid $accentColor;
   .nav-links,
   .logo {
     display: inline-block;
+    a {
+      color: $lightTextColor;
+    }
   }
 
   .logo {
@@ -15,7 +17,7 @@
     margin-right: 50%;
   }
 
-  .nav-links span {
+  .nav-links span a {
     color: $lightTextColor;
     font-size: 1.6rem;
   }

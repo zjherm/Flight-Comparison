@@ -1,9 +1,43 @@
 <navbar></navbar>
 <header>
-  <hero></hero>
+  
 </header>
 <main>
-  <div>
-    <h1>Found in {{ $ctrl.name }}.html</h1>
+  <div class="container">
+  	<div class="row">
+		<h1 class="col-sm-12">{{$ctrl.title}}</h1>
+		<flight-selector where="'origin'" 
+						 selection="$ctrl.originAirportData">			 
+		</flight-selector>
+		<flight-selector where="'destination'" 
+						 selection="$ctrl.destinationAirportData">
+		</flight-selector>
+		<div class="col-sm-12">
+			<button class="btn btn-success" 
+					ng-disabled="!$ctrl.airportsSelectedCorrectly"
+					ng-click="$ctrl.searchFlights()">Get Cheap Flights</button>
+		</div>
+  	</div>
+  	<div class="row flight-results">
+  		<div class="flight-option col-sm-12"
+  			 ng-repeat="flight in $ctrl.flightSearchResults.flights">
+  			 <p class="price">
+  			 	Only {{flight.price | currency : flight.currency}}
+  			 </p>
+  			 <span class="date origin-date">Leaving: {{flight.dateFrom | date:'medium'}}</span>
+  			 <span class="date destination-date">To: {{flight.dateTo | date:'medium'}}</span>
+
+  		</div>
+  	</div>
   </div>
 </main>
+
+
+<!-- flights:
+
+currency:"€"
+dateFrom:"2017-06-28T18:14:03.554Z"
+dateTo:"2017-06-29T16:36:44.306Z"
+price:16.33214538358152
+
+: -->

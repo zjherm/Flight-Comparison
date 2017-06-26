@@ -1,0 +1,23 @@
+<div class="col-md-6 col-sm-6">
+	<p class="input-group">
+		<input type="text" 
+			   class="form-control" 
+			   uib-datepicker-popup="dd-MMMM-yyyy" 
+			   ng-model="fs.selectedDate" 
+			   is-open="fs.popup1.opened" 
+			   datepicker-options="fs.dateOptions" 
+			   ng-required="true" 
+			   ng-change="fs.setDate()"
+			   close-text="Close" 
+			   alt-input-formats="altInputFormats" />
+		 <span class="input-group-btn">
+		     <button type="button" class="btn btn-default" ng-click="fs.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+		 </span>	
+	</p>
+  
+  <input type="text" 
+  		 ng-model="fs.selectedAirport" 
+  		 uib-typeahead="airport as airport.name + ' [' + airport.iataCode + ']' for airport in fs.airports | filter:$viewValue | limitTo:8" 
+  		 typeahead-on-select="fs.airportSelected($item, $model, $label, $event)" 
+  		 class="form-control">
+</div>
